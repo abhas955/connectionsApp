@@ -1,0 +1,24 @@
+{
+  "name": "abdullahiahmed-project",
+  "version": "1.0.0",
+  "description": "project2-mvc",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abhas955/connectionsApp.git"
+  },
+  "author": "Abdullahi Ahmed",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abhas955/connectionsApp/issues"
+  },
+  "homepage": "https://github.com/abhas955/connectionsApp#readme",
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "morgan": "^1.10.0"
+  }
+}

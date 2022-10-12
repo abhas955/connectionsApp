@@ -1,0 +1,25 @@
+
+
+.card-footer{
+    background-color: #0a4275;
+}
+
+.text-center{
+
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.container{
+    background-color: #0a4275;
+}
+
+.connection-list{
+    align-content: center;
+
+    margin: 50px;
+}
+.main-content{
+    margin: 50px;
+    position: absolute;
+
+}
