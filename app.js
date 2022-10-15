@@ -1,12 +1,14 @@
 // require modules
 const express = require("express");
 const morgan = require("morgan");
-const storyRoutes = require("./routes/connectionRoutes");
+const mainRouter = require("./routes/mainRoutes");
+const connectionRouter = require("./routes/connectionRoutes")
+
 // create app
 const app = express();
 
 //configure app
-let port = 3000;
+let port = 4000;
 let host = "localhost";
 app.set("view engine", "ejs");
 
@@ -20,7 +22,11 @@ app.get("/", (req, res) => {
     res.render("index");
 });
 
-// app.use("/stories", storyRoutes);
+app.use("/", mainRouter);
+app.use("/connections", connectionRouter);
+app.set('view engine', 'ejs');
+app.use('/upload', mainRouter);
+app.use('/upload', connectionRouter);
 
 //start server
 app.listen(port, host, () => {
