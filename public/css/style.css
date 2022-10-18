@@ -14,8 +14,9 @@
 }
 
 .connection-list{
+    top: 100px;
     align-content: center;
-
+    position: absolute;
     margin: 50px;
 }
 .main-content{
