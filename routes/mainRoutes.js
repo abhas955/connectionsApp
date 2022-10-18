@@ -24,6 +24,9 @@ mainRouter.get("/contact", mainController.contact);
 
 
 
+
+
+
 //navigate to login
 
 module.exports = mainRouter;

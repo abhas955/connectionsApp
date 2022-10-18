@@ -1,8 +1,9 @@
 const model = require("../models/connection");
 exports.connections = (req, res) => {
     // res.render("../connection/connectionList");
-    let connections = model.find();
-    res.render('./connection/connectionList', { connections });
+    // let connections = model.find();
+    // res.render('./connection/connectionList', { connections });
+
 };
 
 
@@ -20,3 +21,4 @@ exports.contact = (req, res) => {
 exports.about = (req, res) => {
     res.render('about');
 };
+

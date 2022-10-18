@@ -10,28 +10,41 @@
     </div>
 </div>
 
+<!---->
+
 <section class="connection-list">
-    <h2>Events</h2>
+
+    <h1> Events</h1>
     <div class="card" style="width: 18rem;">
-        <h1> Study</h1>
+        <%if(topics.length) {%>
+        <%topics.forEach(topic=>{%>
+
+        <h2> <%= topic%></h2>
+            <%if(connections.length) {%>
+            <%connections.forEach(connection=>{%>
+                <% if (topic === connection.topic) { %>
+
         <ul class="list-group list-group-flush">
-            <li class="list-group-item"><a href="/connections/<%= connections.id%>"><%= connection.title %></a></li>
-            <li class="list-group-item"><a href="connection.html">Computer Architecture</a></li>
-            <li class="list-group-item"><a href="connection.html">Intro to Java</a></li>
+            <li class="list-group-item"><a href="/connections/<%= connection.id%>"><p><%= connection.title%></p></a></li>
         </ul>
-    </div>
-    <br><br/>
-    <br><br/>
-    <div class="card" style="width: 18rem;">
-        <h1> Book Clubs</h1>
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item"><a href="connection.html">English Literature</a></li>
-            <li class="list-group-item"><a href="connection.html">History</a></li>
-            <li class="list-group-item"><a href="connection.html">Sci-Fi</a></li>
-        </ul>
+                    <%} else { %>
+
+                    <% } %>
+
+            <% });
+            } else {%>
+                <p>There are no connections to display.</p>
+            <%}%>
+
+        <% });
+        } else {%>
+            <p>There are no topics to display.</p>
+        <%}%>
     </div>
 
+
 </section>
+
 
 
 <%-include('../partials/footer.ejs')%>

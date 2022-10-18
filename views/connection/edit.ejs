@@ -1,0 +1,77 @@
+<%-include('../partials/header.ejs')%>
+<link rel="stylesheet" href="/css/style2.css">
+
+<!-- connections button-->
+
+<div class="card">
+    <div class="card-header">
+
+    </div>
+    <div class="card-body">
+        <a href="/connections" class="btn btn-primary">Connections</a>
+    </div>
+</div>
+
+<!--<section class="newConnectionForm">-->
+
+<form action="/connections/<%=connection.id%>?_method=PUT" method="post" >
+    <ul>
+        <li>
+            <label for="topic">Topic</label>
+            <input  id="topic" name="topic" value="<%= connection.topic%>"/>
+        </li>
+        <li>
+            <label for="title">Title</label>
+            <input  id="title" name="title" value="<%= connection.title%>"/>
+        </li>
+
+        <li>
+            <label for="host">Host</label>
+            <input id="host" name="host" value="<%= connection.host%>"/>
+        </li>
+
+        <li>
+            <label for="msg">Details</label>
+            <textarea id="msg" name="details" ><%= connection.details%>"</textarea>
+        </li>
+
+        <li>
+            <label for="where">Where</label>
+            <input  id="where" name="where" value="<%= connection.where%>"/>
+        </li>
+
+        <li>
+            <label for="when">When</label>
+            <input  id="when" name="when" value="<%= connection.when%>"/>
+        </li>
+
+        <li>
+            <label for="start">Start</label>
+            <input  id="start" name="start" value="<%= connection.start%>" />
+        </li>
+
+        <li>
+            <label for="end">End</label>
+            <input  id="end" name="end" value="<%= connection.end%>"/>
+        </li>
+
+        <li>
+            <label for="imageUrl">Image URL</label>
+            <input  id="imageUrl" name="imageURL" value="<%= connection.imageURL%>" />
+        </li>
+
+    </ul>
+
+    <a class="btn btn-secondary ms-auto"><button>Create Connection</button></a>
+</form>
+
+
+
+
+
+<!--</section>-->
+
+
+<!-- footer -->
+
+<%-include('../partials/footer.ejs')%>

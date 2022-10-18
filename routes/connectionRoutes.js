@@ -13,7 +13,7 @@ connectionRouter.get("/new", connectionController.new);
 connectionRouter.get('/create', (req, res) => {
    let connection = req.body;
    model.save(connection);
-   res.redirect('/connection/connectionList');
+   res.redirect('/connections');
 });
 
 //POST /connections: create a new connection
@@ -21,15 +21,15 @@ connectionRouter.get('/create', (req, res) => {
 connectionRouter.post("/", connectionController.create);
 
 //GET /connections/:id send details of connection identified by id
- connectionRouter.get("/:id", connectionController.show);
+connectionRouter.get("/:id", connectionController.show);
 
 //GET /connections/:id/edit: send html form for editing an existing connection
-// router.get("/:id/edit", controller.edit);
+connectionRouter.get("/:id/edit", connectionController.edit);
 
 //PUT /connections/:id: update the connection identified by id
-// router.put("/:id", controller.update);
+connectionRouter.put("/:id", connectionController.update);
 
 //DELETE /connections/:id, delete connection identified by id
-// router.delete("/:id", controller.delete);
+connectionRouter.delete("/:id/delete", connectionController.delete);
 
 module.exports = connectionRouter;
