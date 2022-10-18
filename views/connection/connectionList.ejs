@@ -16,19 +16,19 @@
 
     <h1> Events</h1>
     <div class="card" style="width: 18rem;">
-        <%if(topics.length) {%>
-        <%topics.forEach(topic=>{%>
+        <%if(categories.length) {%>
+        <%categories.forEach(category=>{%>
 
-        <h2> <%= topic%></h2>
+        <h2> <%= category%></h2>
             <%if(connections.length) {%>
             <%connections.forEach(connection=>{%>
-                <% if (topic === connection.topic) { %>
+                <% if (category === connection.category) { %>
 
         <ul class="list-group list-group-flush">
             <li class="list-group-item"><a href="/connections/<%= connection.id%>"><p><%= connection.title%></p></a></li>
         </ul>
                     <%} else { %>
-
+                        <p>There are no connections to display.</p>
                     <% } %>
 
             <% });
@@ -38,7 +38,7 @@
 
         <% });
         } else {%>
-            <p>There are no topics to display.</p>
+            <p>There are no categories to display.</p>
         <%}%>
     </div>
 

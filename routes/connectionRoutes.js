@@ -30,6 +30,6 @@ connectionRouter.get("/:id/edit", connectionController.edit);
 connectionRouter.put("/:id", connectionController.update);
 
 //DELETE /connections/:id, delete connection identified by id
-connectionRouter.delete("/:id/delete", connectionController.delete);
+connectionRouter.delete("/:id", connectionController.delete);
 
 module.exports = connectionRouter;

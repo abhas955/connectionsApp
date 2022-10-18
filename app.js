@@ -33,16 +33,27 @@ app.set('views', path.join(__dirname, 'views'));
 app.use('/upload', mainRouter);
 app.use('/upload', connectionRouter);
 
-// error handler
-app.use(function(err, req, res, next) {
-    // set locals, only providing error in development
-    res.locals.message = err.message;
-    res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-    // render the error page
-    res.status(err.status || 500);
-    res.render('error');
+
+// error handler
+app.use((req, res, next)=> {
+    let err = new Error('The server cannot locate  '+ req.url);
+    err.status = 404;
+    next(err);
+})
+
+
+
+app.use((err, req, res, next) => {
+    if(!err.status){
+        console.log(err.stack);
+        err.status = 500;
+        err.message = ("Internal Server Error");
+    }
+    res.status(err.status);
+    res.render('error', {error: err});
 });
+
 
 //start server
 app.listen(port, host, () => {

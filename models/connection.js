@@ -4,7 +4,7 @@ const connections = [
     {
         id: '0',
         title:'Intro To Game Development',
-        topic: 'Study',
+        category: 'Study',
         host:'James Aram',
         details:'Individuals that are game development enthusiasts would like to meet and learn together',
         where: 'Athens Drive High School',
@@ -18,7 +18,7 @@ const connections = [
     {
         id: '1',
         title:'Intro To IntelliJ',
-        topic: 'Study',
+        category: 'Study',
         host:'James Aram',
         details:'Individuals that are IntelliJ enthusiasts would like to meet',
         where: 'Apex High School',
@@ -31,7 +31,7 @@ const connections = [
     {
         id: '2',
         title:'Soccer Practice',
-        topic: 'Sports',
+        category: 'Sports',
         host:'Jose Mourinho',
         details:'If you are interested in practicing soccer and improving your game, come join us!',
         where: 'Needham Broughton High School',
@@ -45,7 +45,7 @@ const connections = [
     {
         id: '3',
         title:'Basketball Practice',
-        topic: 'Sports',
+        category: 'Sports',
         host:'Jim Beglin',
         details:'If you are interested in practicing basketball and improving your game, come join us!',
         where: 'North Carolina Central University',
@@ -68,15 +68,15 @@ exports.findById = function (id) {
 };
 
 
-topics = [];
-exports.findAllTopics = function (){
+categories = [];
+exports.findAllCategories = function (){
 
     connections.forEach(connection => {
-        if (!topics.includes(connection.topic)) {
-            topics.push(connection.topic);
+        if (!categories.includes(connection.category)) {
+            categories.push(connection.category);
         };
     });
-    return topics;
+    return categories;
 
 };
 
@@ -84,7 +84,7 @@ exports.updateById = function (id, newConnection){
     let connection = connections.find((connection) => connection.id === id);
     if(connection){
         connection.title = newConnection.title;
-        connection.topic = newConnection.topic;
+        connection.category = newConnection.category;
         connection.host = newConnection.host;
         connection.details = newConnection.details;
         connection.where = newConnection.where;
@@ -100,8 +100,8 @@ exports.updateById = function (id, newConnection){
     }
 }
 
-exports.findByTopic = (topic) =>{
-    return connections.find((connection) => connection.topic === topic);
+exports.findByCategories = (category) =>{
+    return connections.find((connection) => connection.category === category);
 };
 
 exports.save =  function (connection) {
@@ -111,7 +111,7 @@ exports.save =  function (connection) {
 };
 
 exports.deleteById = function (id) {
-    let index = connections.findIndex((connection, index) => connection.id === id );
+    let index = connections.findIndex(connection => connection.id === id );
     if(index !== -1){
         connections.splice(index, 1);
         return true;

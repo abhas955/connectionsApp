@@ -6,8 +6,8 @@ const model = require("../models/connection.js");
 exports.connectionsList = (req,res) => {
     // res.render("./connection/connectionList");
     let connections = model.find();
-    let topics = model.findAllTopics();
-    res.render('./connection/connectionList', {topics,connections });
+    let categories = model.findAllCategories();
+    res.render('./connection/connectionList', {categories,connections });
 
     //res.send(model.find());
 
@@ -26,14 +26,15 @@ exports.create = (req, res) => {
     res.redirect("/connections");
 };
 //Get connections/:id send details of connection identified by id
-exports.show = (req, res) => {
+exports.show = (req, res,next) => {
     let id = req.params.id;
     let connection = model.findById(id);
     if(connection){
         res.render('./connection/show', { connection });
     }
-    res.status(404).render("./connection/show");
-    return;
+    let err = new Error('Cannot find a story with id '+ id);
+    err.status = 404;
+    next(err);
 }
 //
 // exports.new = (req, res) => {
@@ -43,17 +44,18 @@ exports.show = (req, res) => {
 
 
 
-exports.edit = (req, res) => {
+exports.edit = (req, res,next) => {
     let id = req.params.id;
     let connection = model.findById(id);
     if(connection){
         res.render('./connection/edit', { connection });
     }
-    res.status(404).send("Cannot find story with id " + id);
-    return;
+    let err = new Error('Cannot find a story with id '+ id);
+    err.status = 404;
+    next(err);
 }
 
-exports.update = (req, res) => {
+exports.update = (req, res,next) => {
     let connection = req.body;
     let id = req.params.id;
 
@@ -61,18 +63,22 @@ exports.update = (req, res) => {
         res.redirect('/connections/' +id);
     }
     else{
-        res.status(404).send('Cannot find story with id ' + id);
+        let err = new Error('Cannot find a story with id '+ id);
+        err.status = 404;
+        next(err);
     }
     //res.send("update");
 }
 
 //DELETE /connections/:id, delete connection identified by id
-exports.delete = (req, res) => {
+exports.delete = (req, res, next) => {
     let id = req.params.id;
     if(model.deleteById(id)){
         res.redirect('/connections');
     }
     else{
-        res.status(404).send('Cannot find story with id '+id);
+        let err = new Error('Cannot find a story with id '+ id);
+        err.status = 404;
+        next(err);
     }
 };
