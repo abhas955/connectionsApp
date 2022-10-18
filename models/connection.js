@@ -17,6 +17,20 @@ const connections = [
     },
     {
         id: '1',
+        title:'Artificial Intelligence',
+        category: 'Study',
+        host:'James Gill',
+        details:'Individuals that are Artificial Intelligence enthusiasts would like to meet and learn together',
+        where: 'Druid Hills Drive High School',
+        when: '10/25/2022',
+        start: '6:15 PM',
+        end: '7:30 PM',
+        imageURL: 'https://www.simplilearn.com/ice9/free_resources_article_thumb/Why-get-certified-in-Artificial-Intelligence.jpg',
+        createdAt: DateTime.now().toLocaleString(DateTime.DATETIME_SHORT),
+
+    },
+    {
+        id: '2',
         title:'Intro To IntelliJ',
         category: 'Study',
         host:'James Aram',
@@ -29,7 +43,7 @@ const connections = [
         createdAt: DateTime.now().toLocaleString(DateTime.DATETIME_SHORT),
     },
     {
-        id: '2',
+        id: '3',
         title:'Soccer Practice',
         category: 'Sports',
         host:'Jose Mourinho',
@@ -43,7 +57,7 @@ const connections = [
 
     },
     {
-        id: '3',
+        id: '4',
         title:'Basketball Practice',
         category: 'Sports',
         host:'Jim Beglin',
@@ -53,6 +67,20 @@ const connections = [
         start: '6:15 PM',
         end: '7:30 PM',
         imageURL: 'https://cdn1.sportngin.com/attachments/call_to_action/cecb-173506978/MLKSKILLZ-64_large.jpg',
+        createdAt: DateTime.now().toLocaleString(DateTime.DATETIME_SHORT),
+
+    },
+    {
+        id: '5',
+        title:'Football Practice',
+        category: 'Sports',
+        host:'Arthur Melo',
+        details:'If you are interested in practicing football and improving your game, come join us!',
+        where: 'North Carolina A&T University',
+        when: '11/29/2022',
+        start: '6:15 PM',
+        end: '7:30 PM',
+        imageURL: 'https://s.yimg.com/os/creatr-uploaded-images/2020-12/e3514670-3fbf-11eb-b67f-efeaa313555f',
         createdAt: DateTime.now().toLocaleString(DateTime.DATETIME_SHORT),
 
     }

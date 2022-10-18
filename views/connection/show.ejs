@@ -1,4 +1,5 @@
 <%-include('../partials/header.ejs')%>
+<link rel="stylesheet" href="/public/css/style2.css">
 
 <div class="card">
     <div class="card-header">
@@ -21,9 +22,11 @@
             <div class="card-body">
                 <h5 class="card-title"><%= connection.title%></h5>
                 <p class="card-text">Date: <%= connection.when%></p>
+                <p class="card-text">Location: <%= connection.where%></p>
                 <p class="card-text"><%= connection.start%> to <%= connection.end%></p>
                 <p class="card-text">Hosted by: <%= connection.host%></p>
                 <p class="card-text"><%= connection.details%></p>
+
 
                 <form>
                     <table>
@@ -33,7 +36,7 @@
                 </form>
 
 
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                <p class="card-text"><small class="text-muted">created or updated on <%=connection.createdAt%></small></p>
             </div>
         </div>
     </div>
